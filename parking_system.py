@@ -26,13 +26,13 @@ class ParkingSystem:
 
     def _load_json(self, file_path, default_data):
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             return default_data
 
     def _save_json(self, data, file_path):
-        with open(file_path, 'w') as f:
+        with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(data, f, indent=4)
 
     def _save_all_data(self):
@@ -173,7 +173,7 @@ class ParkingSystem:
 
         file_name = f"{car_id}.txt"
         try:
-            with open(file_name, 'w') as f:
+            with open(file_name, 'w', encoding='utf-8') as f:
                 f.write(f"Total payment: ${total_payments:.2f}\n")
                 f.write(f"Available credits: ${available_credits:.2f}\n")
                 f.write("Parked Dates:\n")
@@ -187,9 +187,11 @@ class ParkingSystem:
                         record['leave'], '%Y-%m-%d %H:%M')
 
                     # For this display, we need the original fee without discounts.
-                    # This calculation might differ from what was actually paid if discounts/credits were used.
+                    # This calculation might differ from what was actually paid if 
+                    # discounts/credits were used.
                     # We can get the paid amount from the record directly.
-                    # For consistency with the prompt's example output, let's just display the paid amount.
+                    # For consistency with the prompt's example output, 
+                    # let's just display the paid amount.
                     stay_time_str = f"{record['arrival']} - {record['leave']}"
                     f.write(f"{stay_time_str} ${record['fee_paid']:.2f}\n")
 
