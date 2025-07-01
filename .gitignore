@@ -1,0 +1,4 @@
+.github
+.vscode
+.devcontainer
+__pycache__
