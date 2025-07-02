@@ -4,7 +4,6 @@ Calculators
 
 from datetime import datetime, timedelta, time
 
-
 class PricingCalculator:
     """
     Calculates parking fees based on arrival time, departure time, 
@@ -17,12 +16,6 @@ class PricingCalculator:
             "17:00-23:59": {"max_stay": "Up to midnight", "price_per_hour": 5.00},
             "00:00-07:59": {"price_one_time": 20.00}
         } for i in range(5)},
-        # # Friday (4)
-        # 4: {
-        #     "08:00-16:59": {"max_stay": 2, "price_per_hour": 10.00},
-        #     "17:00-23:59": {"max_stay": "Up to midnight", "price_per_hour": 5.00},
-        #     "00:00-07:59": {"price_one_time": 20.00}
-        # },
         # Saturday (5)
         5: {
             "08:00-16:59": {"max_stay": 4, "price_per_hour": 3.00},

@@ -90,8 +90,7 @@ class ParkingSystem:
         arrival_dt = datetime.strptime(
             car_info["arrival_time"], '%Y-%m-%d %H:%M')
 
-        # To facilitate testing according to the assignment, we will input the leave time.
-        # In a real-world scenario, this could be datetime.now().
+
         while True:
             leave_time_str = input(
                 f"Enter leave time for car {car_id} (YYYY-MM-DD HH:MM): ").strip()
@@ -180,18 +179,11 @@ class ParkingSystem:
 
                 car_history = self.history.get(car_id, [])
                 for record in car_history:
-                    # To display the full cost of each stay in the history file as per the example format.
                     arrival = datetime.strptime(
                         record['arrival'], '%Y-%m-%d %H:%M')
                     leave = datetime.strptime(
                         record['leave'], '%Y-%m-%d %H:%M')
 
-                    # For this display, we need the original fee without discounts.
-                    # This calculation might differ from what was actually paid if 
-                    # discounts/credits were used.
-                    # We can get the paid amount from the record directly.
-                    # For consistency with the prompt's example output, 
-                    # let's just display the paid amount.
                     stay_time_str = f"{record['arrival']} - {record['leave']}"
                     f.write(f"{stay_time_str} ${record['fee_paid']:.2f}\n")
 

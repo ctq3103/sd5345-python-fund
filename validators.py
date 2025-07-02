@@ -5,7 +5,6 @@ Validators
 import re
 from datetime import datetime
 
-
 def validate_car_id(car_id: str) -> bool:
     """Validates the car ID format (e.g., 59C-12345)."""
     pattern = re.compile(r'^\d{2}[A-Z]-\d{4,5}$')

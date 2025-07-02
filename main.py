@@ -1,6 +1,4 @@
-# main.py
 from parking_system import ParkingSystem
-
 
 def main_menu():
     print("\n==============================")
